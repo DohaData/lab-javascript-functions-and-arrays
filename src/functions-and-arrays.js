@@ -298,6 +298,26 @@ function greatestProduct(arrayOfArrays) {
 
 console.log(greatestProduct(simpleArrayOfArrays));
 
+function greatestProductOfDiagonals(arrayOfArrays) {
+  let highestProd = 0;
+  for (let i = 0; i < arrayOfArrays.length - 3; i++) {
+    for (let j = 0; j < arrayOfArrays[i].length - 3; j++) {
+      currentProd =
+        arrayOfArrays[i][j] *
+        arrayOfArrays[i + 1][j + 1] *
+        arrayOfArrays[i + 2][j + 2] *
+        arrayOfArrays[i + 3][j + 3];
+      if (currentProd > highestProd) {
+        highestProd = currentProd;
+      }
+    }
+  }
+
+  return highestProd;
+}
+
+console.log(greatestProductOfDiagonals(simpleArrayOfArrays));
+
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== "undefined") {
