@@ -18,6 +18,9 @@ const words = [
 ];
 
 function findLongestWord(wordsArray) {
+  if (!wordsArray.length) {
+    return null;
+  }
   let longest_word = wordsArray[0];
   for (let word of wordsArray) {
     if (word.length > longest_word.length) {
@@ -73,7 +76,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersArray) {
   if (!numbersArray.length) {
-    return 0;
+    return null;
   }
   return sumNumbers(numbersArray) / numbersArray.length;
 }
@@ -96,7 +99,7 @@ const wordsArr = [
 
 function averageWordLength(wordsArray) {
   if (!wordsArray.length) {
-    return 0;
+    return null;
   }
   wordsLengthArr = wordsArray.map(function (wrd) {
     return wrd.length;
@@ -109,7 +112,7 @@ console.log(averageWordLength(wordsArr));
 // Bonus - Iteration #4.1
 function avg(genericArray) {
   if (!genericArray.length) {
-    return 0;
+    return null;
   }
   return sum(genericArray) / genericArray.length;
 }
@@ -133,6 +136,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length) {
+    return null;
+  }
   uniqueWordsResult = [];
   for (let word of wordsUnique) {
     if (!uniqueWordsResult.includes(word)) {
@@ -157,6 +163,9 @@ const wordsFind = [
 ];
 
 function doesWordExist(words, wordToSearch) {
+  if (!words.length) {
+    return null;
+  }
   if (words.indexOf(wordToSearch) != -1) {
     return true;
   }
