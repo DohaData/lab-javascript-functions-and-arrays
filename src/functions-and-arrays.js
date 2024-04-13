@@ -187,7 +187,7 @@ function howManyTimes(words, wordToSearch) {
       wrdsCount += 1;
     }
   }
-  return wrdsCount
+  return wrdsCount;
 }
 
 console.log(howManyTimes(wordsCount, "matter"));
@@ -258,22 +258,45 @@ const matrix = [
   ],
 ];
 
+let simpleArrayOfArrays = [
+  [1, 2, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 4, 3, 4, 5],
+];
+
 function greatestProduct(arrayOfArrays) {
-  highest_prod = 0
-  for (let i=0; i< arrayOfArrays.length; i++){
-    currentArray = arrayOfArrays[i]
-    for (let j=0; j<currentArray; j++){
-      current_prod = currentArray.slice(j, j+4).reduce( (a, b) => a * b )
-      if (current_prod > highest_prod){
-        highest_prod = current_prod
+  let highestProd = 0;
+  for (let i = 0; i < arrayOfArrays.length; i++) {
+    for (let j = 0; j < arrayOfArrays[i].length; j++) {
+      if (j < arrayOfArrays[i].length - 3) {
+        currentProd =
+          arrayOfArrays[i][j] *
+          arrayOfArrays[i][j + 1] *
+          arrayOfArrays[i][j + 2] *
+          arrayOfArrays[i][j + 3];
+        if (currentProd > highestProd) {
+          highestProd = currentProd;
+        }
       }
-      
+      if (i < arrayOfArrays[j].length - 3) {
+        columnProd =
+          arrayOfArrays[i][j] *
+          arrayOfArrays[i + 1][j] *
+          arrayOfArrays[i + 2][j] *
+          arrayOfArrays[i + 3][j];
+        if (currentProd > highestProd) {
+          highestProd = currentProd;
+        }
+      }
     }
   }
-  return highest_prod
+
+  return highestProd;
 }
 
-console.log(greatestProduct(matrix))
+console.log(greatestProduct(simpleArrayOfArrays));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
